@@ -1,23 +1,16 @@
 package com.example.demo.adapters.out.repository.h2.repository;
 
 import com.example.demo.domain.model.entity.UrlEntity;
-import com.example.demo.domain.port.out.UrlDB;
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-@RequiredArgsConstructor
-public class H2Repository implements UrlDB {
+public interface H2Repository extends JpaRepository<UrlEntity, Long> {
 
-    private final JpaRepository<UrlEntity, Long> repository;
-
-    @Override
-    public Optional<UrlEntity> saveShortUrl(UrlEntity entity) {
-
-        repository.save(entity);
-        return Optional.empty();
-    }
+    @Query(value = "SELECT u FROM UrlEntity u WHERE u.identifierUrl = :identifierUrl")
+    Optional<UrlEntity> findByIdentifier(@Param("identifierUrl") String identifier);
 }
