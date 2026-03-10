@@ -64,6 +64,8 @@ public class UrlServiceImpl implements UrlService {
         logger.info("Updating count...");
         patchClickCount(urlEntity.get());
 
+        logger.info("Sendo redirecionado pro site: {}", urlEntity.get().getOriginalUrl());
+
         try {
             httpServletResponse.sendRedirect(urlEntity.get().getOriginalUrl());
         } catch (IOException e) {
