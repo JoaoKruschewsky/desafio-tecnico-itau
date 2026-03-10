@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
 
@@ -21,7 +22,6 @@ import static com.example.demo.adapters.out.repository.h2.mapper.UrlEntityMapper
 @Component
 @RequiredArgsConstructor
 public class H2RepositoryAdapter implements UrlDB {
-
 
     private static final Logger logger = Logger.getLogger(H2RepositoryAdapter.class.getName());
 
@@ -35,12 +35,20 @@ public class H2RepositoryAdapter implements UrlDB {
     }
 
     @Override
-    public UrlEntity getShortUrl( String identifierUrl) {
-        Optional<UrlEntity> verifyUrlEntity = h2Repository.findByIdentifier(identifierUrl);
-        if(verifyUrlEntity.isEmpty()){
-            throw new UrlException("ShortUrl not found", HttpStatus.NOT_FOUND);
-        }
-        return  verifyUrlEntity.get();
+    public Optional<UrlEntity> getShortUrl( String identifierUrl) {
+
+        return  h2Repository.findByIdentifier(identifierUrl);
 
     }
+
+    @Override
+    public void patchCountClick(int countClick, String identifierUrl)  {
+        h2Repository.patchCountClick(countClick, identifierUrl);
+    }
+
+    @Override
+    public List<String> findAllIdentifierUrl() {
+        return h2Repository.findAllIdentifierUrl();
+    }
+
 }

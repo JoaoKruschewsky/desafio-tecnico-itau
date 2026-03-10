@@ -1,8 +1,10 @@
 package com.example.demo.application.exception;
 
+import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 
+@Getter
 public class UrlException extends RuntimeException{
 
     private final HttpStatus status;
@@ -11,4 +13,5 @@ public class UrlException extends RuntimeException{
         super(message);
         this.status = status;
     }
+
 }

@@ -14,18 +14,17 @@ public class Url {
     String originalUrl;
     String expirationDate;
     String createdAt;
+    Integer clickCount;
 
-    public Url( String shortUrl, String originalUrl, String expirationDate) {
-        identifierUrl = "url" + generateId();
+
+    public Url( String shortUrl, String originalUrl, String expirationDate, Integer clickCount, String identifierUrl) {
+        this.identifierUrl = identifierUrl;
         this.shortUrl = shortUrl + identifierUrl;
         this.originalUrl = originalUrl;
         this.expirationDate = expirationDate;
-        createdAt = LocalDateTime.now().toString();;
+        createdAt = LocalDateTime.now().toString();
+        this.clickCount = clickCount;
     }
 
 
-    private String generateId() {
-        int i = 1;
-        return String.valueOf(i++);
-    }
 }

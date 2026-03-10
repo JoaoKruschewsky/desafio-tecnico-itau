@@ -22,5 +22,7 @@ public class UrlEntity {
      String originalUrl;
      String expirationDate;
      String createdAt;
+     @Column(nullable = false)
+     Integer clickCount = 0;
 
 }

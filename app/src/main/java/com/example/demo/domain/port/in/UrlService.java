@@ -5,10 +5,12 @@ import com.example.demo.domain.model.dto.UrlRequest;
 import com.example.demo.domain.model.dto.UrlResponse;
 import org.springframework.http.ResponseEntity;
 
+import java.io.IOException;
+
 public interface UrlService {
 
     ResponseEntity<UrlResponse> createUrlShort(UrlRequest body);
-    ResponseEntity<UrlResponse> getUrlShort(String identifierUrl);
+    void getUrlShort(String identifierUrl);
     ResponseEntity<UrlDetailResponse> getDetailUrlShort(String identifierUrl);
 
 
