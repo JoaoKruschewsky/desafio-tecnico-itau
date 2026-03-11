@@ -2,15 +2,16 @@ package com.example.demo.application.util;
 
 import java.util.List;
 
+import static com.example.demo.application.util.Constants.identifierUrl;
+
 public class ManipulationId {
 
     public static String manipulationIdentifierUrl (List<String> listIdentifier) {
 
         if (listIdentifier.isEmpty()) {
-            return "url1";
+            return identifierUrl;
         }
 
-        String idNameFix = "url";
         String idFinalNumber = "";
 
         for (String id : listIdentifier) {
@@ -18,6 +19,6 @@ public class ManipulationId {
         }
 
         String toAddId = String.valueOf(Integer.parseInt(idFinalNumber) + 1);
-        return idNameFix + toAddId;
+        return identifierUrl + toAddId;
     }
 }
