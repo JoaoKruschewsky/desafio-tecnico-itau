@@ -3,10 +3,7 @@ package com.example.demo.application.service;
 import com.example.demo.adapters.out.repository.h2.repository.H2Repository;
 import com.example.demo.adapters.out.repository.h2.repository.H2RepositoryAdapter;
 import com.example.demo.application.exception.UrlException;
-import com.example.demo.domain.model.dto.Url;
-import com.example.demo.domain.model.dto.UrlDetailResponse;
-import com.example.demo.domain.model.dto.UrlRequest;
-import com.example.demo.domain.model.dto.UrlResponse;
+import com.example.demo.domain.model.dto.*;
 import com.example.demo.domain.model.entity.UrlEntity;
 import jakarta.servlet.http.HttpServletResponse;
 import org.junit.jupiter.api.Assertions;
@@ -69,7 +66,9 @@ class UrlServiceImplTest {
         UrlEntity mockEntity = mock(UrlEntity.class);
 
 
+        when(mockEntity.getExpirationDate()).thenReturn("2026-03-23T23:59:59Z");
         when(repository.getShortUrl(any())).thenReturn(Optional.of(mockEntity));
+
         service.getUrlShort(mockEntity.getIdentifierUrl());
 
         verify(repository, times(1).description("Get short called")).getShortUrl(any());
@@ -101,6 +100,33 @@ class UrlServiceImplTest {
         } catch (UrlException e) {
             assertEquals(UrlException.class, e.getClass());
         }
+
+    }
+
+
+    @Test
+    void stats() {
+        UrlEntity mockEntity = mock(UrlEntity.class);
+
+        when(repository.getShortUrl(any())).thenReturn(Optional.of(mockEntity));
+        ResponseEntity<UrlStats> responseEntity =  service.getStatistic(mockEntity.getIdentifierUrl());
+        assertNotNull(responseEntity);
+        assertEquals(200, responseEntity.getStatusCode().value());
+
+    }
+
+    @Test
+    void getAllUrl() {
+        UrlEntity urlEntity = mock(UrlEntity.class);
+        UrlEntity urlEntity2 = mock(UrlEntity.class);
+        when(repository.getAllUrl()).thenReturn(List.of(urlEntity, urlEntity2));
+        ResponseEntity<List<UrlDetailResponse>>responseEntity = service.getAllUrl(2);
+
+        assertNotNull(responseEntity);
+        assertEquals(200, responseEntity.getStatusCode().value());
+        assertNotNull(responseEntity.getBody());
+        assertEquals(2, responseEntity.getBody().size());
+
 
     }
 }

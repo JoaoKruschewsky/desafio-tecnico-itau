@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.demo.application.service.UrlServiceImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-03-10T19:01:04.747Z" hostname="DESKTOP-HFAT991" time="0.996">
+<testsuite name="com.example.demo.application.service.UrlServiceImplTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-03-11T02:06:07.271Z" hostname="DESKTOP-HFAT991" time="0.442">
   <properties/>
-  <testcase name="NotFoundUrlShort()" classname="com.example.demo.application.service.UrlServiceImplTest" time="0.977"/>
-  <system-out><![CDATA[16:01:05.722 [Test worker] INFO com.example.demo.application.service.UrlServiceImpl -- Identifer: null 
+  <testcase name="getDetailUrlShort()" classname="com.example.demo.application.service.UrlServiceImplTest" time="0.391"/>
+  <testcase name="createUrlShort()" classname="com.example.demo.application.service.UrlServiceImplTest" time="0.013"/>
+  <testcase name="stats()" classname="com.example.demo.application.service.UrlServiceImplTest" time="0.003"/>
+  <testcase name="getAllUrl()" classname="com.example.demo.application.service.UrlServiceImplTest" time="0.003"/>
+  <testcase name="getUrlShort()" classname="com.example.demo.application.service.UrlServiceImplTest" time="0.018"/>
+  <testcase name="NotFoundUrlShort()" classname="com.example.demo.application.service.UrlServiceImplTest" time="0.003"/>
+  <system-out><![CDATA[2026-03-10T23:06:07.634-03:00  INFO 15068 --- [shortner] [    Test worker] c.e.d.a.service.UrlServiceImpl           : Identifer: null 
+2026-03-10T23:06:07.638-03:00  INFO 15068 --- [shortner] [    Test worker] c.e.d.a.service.UrlServiceImpl           : EntityUrl: Optional[Mock for UrlEntity, hashCode: 1614984723] 
+2026-03-10T23:06:07.641-03:00  INFO 15068 --- [shortner] [    Test worker] c.e.d.a.service.UrlServiceImpl           : Response: UrlDetailResponse[shortUrl=null, originalUrl=null, expirationDate=null, createdAt=null, identifierUrl=null, countClick=0] 
+2026-03-10T23:06:07.679-03:00  INFO 15068 --- [shortner] [    Test worker] c.e.d.a.service.UrlServiceImpl           : Request body: UrlRequest[originalUrl=https://www.itau.com.br/minha-conta/saldo, expirationDate=2024-12-31T23:59:59Z]
+2026-03-10T23:06:07.682-03:00  INFO 15068 --- [shortner] [    Test worker] c.e.d.a.service.UrlServiceImpl           : Model Url buidl: com.example.demo.domain.model.dto.Url@6f6c4462
+2026-03-10T23:06:07.683-03:00  INFO 15068 --- [shortner] [    Test worker] c.e.d.a.service.UrlServiceImpl           : Response: UrlResponse[shortUrl=http://localhost:8080/url1, originalUrl=https://www.itau.com.br/minha-conta/saldo, expirationDate=2024-12-31T23:59:59Z] 
+2026-03-10T23:06:07.696-03:00  INFO 15068 --- [shortner] [    Test worker] c.e.d.a.service.UrlServiceImpl           : Identifer: null 
+2026-03-10T23:06:07.697-03:00  INFO 15068 --- [shortner] [    Test worker] c.e.d.a.service.UrlServiceImpl           : EntityUrl: Optional[Mock for UrlEntity, hashCode: 1522513560] 
+2026-03-10T23:06:07.698-03:00  INFO 15068 --- [shortner] [    Test worker] c.e.d.a.service.UrlServiceImpl           : Captured click
+2026-03-10T23:06:07.698-03:00  INFO 15068 --- [shortner] [    Test worker] c.e.d.a.service.UrlServiceImpl           : Updating count...
+2026-03-10T23:06:07.698-03:00  INFO 15068 --- [shortner] [    Test worker] c.e.d.a.service.UrlServiceImpl           : Click uptade: 0 to 1
+2026-03-10T23:06:07.698-03:00  INFO 15068 --- [shortner] [    Test worker] c.e.d.a.service.UrlServiceImpl           : Updating click...
+2026-03-10T23:06:07.699-03:00  INFO 15068 --- [shortner] [    Test worker] c.e.d.a.service.UrlServiceImpl           : Sendo redirecionado pro site: null
+2026-03-10T23:06:07.714-03:00  INFO 15068 --- [shortner] [    Test worker] c.e.d.a.service.UrlServiceImpl           : Identifer: null 
 ]]></system-out>
-  <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (C:\Gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy-agent\1.14.19\154da3a65b4f4a909d3e5bdec55d1b2b4cbb6ce1\byte-buddy-agent-1.14.19.jar)
-WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
-WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
-WARNING: Dynamic loading of agents will be disallowed by default in a future release
-]]></system-err>
+  <system-err><![CDATA[]]></system-err>
 </testsuite>

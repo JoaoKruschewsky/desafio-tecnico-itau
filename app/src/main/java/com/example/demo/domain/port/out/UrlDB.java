@@ -15,4 +15,6 @@ public interface UrlDB {
     void patchCountClick(int countClicl, String identifierUrl);
 
     List<String> findAllIdentifierUrl();
+
+    List<UrlEntity> getAllUrl();
 }

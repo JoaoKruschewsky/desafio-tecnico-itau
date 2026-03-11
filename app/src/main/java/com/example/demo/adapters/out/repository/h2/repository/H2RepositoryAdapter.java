@@ -51,4 +51,9 @@ public class H2RepositoryAdapter implements UrlDB {
         return h2Repository.findAllIdentifierUrl();
     }
 
+
+    @Override
+    public List<UrlEntity> getAllUrl() {
+        return h2Repository.findAll();
+    }
 }
